@@ -14,7 +14,7 @@ namespace BubbleSort
             for (int i = 0; i < strolekar.Length; i++) 
             {
                 Console.WriteLine("Skapar slumpad data av längd " + strolekar[i]); //Skirver hur många tal som skall sorteras
-                int[] lista = GenerateData(strolekar[i]); // skapar en array som generarar element och skpar en metod
+                int[] lista = GenereraData(strolekar[i]); // skapar en array som generarar element och skpar en metod
                 Console.WriteLine("Sorterar slumpad data");
                 DateTime startTid = DateTime.Now; // Tiden för när sorteringen börjar
                 BubbleSort(lista); //Skapar en metod för bubble sort for att sortera listan 
@@ -24,37 +24,37 @@ namespace BubbleSort
             }
         }
         // Det här metoden är för att slumpa talen och den genereras av datorn själv
-        static int[] GenerateData(int size)
+        static int[] GenereraData(int storlek)
         {
             Random rnd = new Random();
-            int[] data = new int[size];
-            for (int i = 0; i < data.Length; i++)
-                data[i] = rnd.Next(data.Length);
-            return data;
+            int[] lista = new int[storlek];
+            for (int i = 0; i < lista.Length; i++)
+                lista[i] = rnd.Next(lista.Length);
+            return lista;
         }
 
 
-        static void BubbleSort(int[] data)
+        static void BubbleSort(int[] lista)
         {
             bool BehoverSortering = true;
             //Gör en loop för varje tal som skall sorteras, avbryt om talen är sorterade
-            for (int i = 0; i < data.Length - 1 && BehoverSortering; i++)
+            for (int i = 0; i < lista.Length - 1 && BehoverSortering; i++)
             {
-                //Signalera att vi börjar om en ny vända med sortering
+                //Den gör att den kör om en ny runda efter första sorteringen
                 BehoverSortering = false;
-                //Gå igenom alla tal fram till och med de tal som ev. 
-                //redan är sorterade (variabeln i)
-                for (int j = 0; j < data.Length - 1 - i; j++)
+                //Gå igenom alla tal fram till och med de tal som ev redan är sorterade variabeln i
+
+                for (int j = 0; j < lista.Length - 1 - i; j++)
                 {
-                    //Flytta större tal fram i vektorn
-                    if (data[j] > data[j + 1])
+                    //Flytta större tal fram i arrayn
+                    if (lista[j] > lista[j + 1])
                     {
                         //Signalera att vi kommer att behöva fortsätta sortera
                         BehoverSortering = true;
                         //Byt plats på tal
-                        int tmp = data[j + 1];
-                        data[j + 1] = data[j];
-                        data[j] = tmp;
+                        int tmp = lista[j + 1];
+                        lista[j + 1] = lista[j];
+                        lista[j] = tmp;
                     }
                 }
             }

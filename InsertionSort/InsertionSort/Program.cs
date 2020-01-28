@@ -24,32 +24,32 @@ namespace InsertionSort
         }
 
         // Det här metoden är för att slumpa talen och den genereras av datorn själv
-        static int[] GenereraData(int size)
+        static int[] GenereraData(int storlek)
         {
             Random rnd = new Random();
-            int[] data = new int[size];
-            for (int i = 0; i < data.Length; i++)
-                data[i] = rnd.Next(data.Length);
-            return data;
+            int[] lista = new int[storlek];
+            for (int i = 0; i < lista.Length; i++)
+                lista[i] = rnd.Next(lista.Length);
+            return lista;
         }
 
 
-        static void InsertionSort(int[] data)
+        static void InsertionSort(int[] lista)
         {
             //Gör en loop för varje tal som skall sorteras börja på index 1 då vi kommer att titta "bakåt" i vektorn
 
-            for (int i = 1; i < data.Length; i++)
+            for (int i = 1; i < lista.Length; i++)
             {
                 //Stega bakåt från position i ned till 1 om det behövs
                 for (int j = i; j > 0; j--)
                 {
                     //jämför med talet "bakom" och se om det är större
-                    if (data[j] < data[j - 1])
+                    if (lista[j] < lista[j - 1])
                     {
                         //byter plats på tal
-                        int temp = data[j - 1];
-                        data[j - 1] = data[j];
-                        data[j] = temp;
+                        int temp = lista[j - 1];
+                        lista[j - 1] = lista[j];
+                        lista[j] = temp;
                     }
                     //annars avsluta innerloopen 
                     else

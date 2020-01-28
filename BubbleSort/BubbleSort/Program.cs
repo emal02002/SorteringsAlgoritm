@@ -36,12 +36,12 @@ namespace BubbleSort
 
         static void BubbleSort(int[] data)
         {
-            bool needsSorting = true;
+            bool BehoverSortering = true;
             //Gör en loop för varje tal som skall sorteras, avbryt om talen är sorterade
-            for (int i = 0; i < data.Length - 1 && needsSorting; i++)
+            for (int i = 0; i < data.Length - 1 && BehoverSortering; i++)
             {
                 //Signalera att vi börjar om en ny vända med sortering
-                needsSorting = false;
+                BehoverSortering = false;
                 //Gå igenom alla tal fram till och med de tal som ev. 
                 //redan är sorterade (variabeln i)
                 for (int j = 0; j < data.Length - 1 - i; j++)
@@ -50,7 +50,7 @@ namespace BubbleSort
                     if (data[j] > data[j + 1])
                     {
                         //Signalera att vi kommer att behöva fortsätta sortera
-                        needsSorting = true;
+                        BehoverSortering = true;
                         //Byt plats på tal
                         int tmp = data[j + 1];
                         data[j + 1] = data[j];

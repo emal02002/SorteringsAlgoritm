@@ -20,11 +20,7 @@ namespace BubbleSort
                 BubbleSort(data);
                 TimeSpan deltaTid = DateTime.Now - startTid;
                 Console.WriteLine("Det tog {0:0.00} ms att sortera.\n", deltaTid.TotalMilliseconds); // \n Tar en ny tom rad
-                Console.WriteLine("Sorterar redan sorterad data");
-                startTid = DateTime.Now;
-                BubbleSort(data);
-                deltaTid = DateTime.Now - startTid;
-                Console.WriteLine("Det tog {0:0.00} ms att sortera.\n", deltaTid.TotalMilliseconds);
+                
             }
         }
         // Det här metoden är för att slumpa talen och den genereras av datorn själv
